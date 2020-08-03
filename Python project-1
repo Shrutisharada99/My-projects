@@ -7,3 +7,11 @@ myself ('Shruti')
 myself (3)
 myself (!)
 myself (+)
+#importing statements
+import random #1
+random.randint(1,10)
+import random, sys, os, math #2
+from random import *
+randint(1,10) #3
+
+
