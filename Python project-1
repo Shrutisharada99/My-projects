@@ -1,0 +1,9 @@
+def myself (name)
+    try:
+        print('My name is'+ str(name))
+    except ValueError:
+        print('That's not a name')
+myself ('Shruti')
+myself (3)
+myself (!)
+myself (+)
