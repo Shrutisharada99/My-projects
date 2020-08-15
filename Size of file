@@ -1,0 +1,7 @@
+import os
+totalSize=0
+for filename in os.path.listdir(C:\\Shruti):
+    if not os.path.isfile(os.path.join(C:\\Shruti, filename):
+        continue
+    totalSize=totalSize + getsize(os.path.join(C:\\Shruti, filename)
+print(totalSize)
