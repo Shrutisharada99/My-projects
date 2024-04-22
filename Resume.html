@@ -1,23 +1,42 @@
+<! Implementations:
+   -----------------
+1. Header Introduction Box:
+   ~~~~~~~~~~~~~~~~~~~~~~~~~
+(i)   Shadowed box and image [For all parameters, check code]
+(ii)  Dynamic colour change animation 
+
+2. Sections:
+   ~~~~~~~~~
+(i)   Shadowed boxes
+(ii)  Different CSS classes and formattings used on each of the boxes
+(ii1) Columns implementation using 'CSS flex'
+(iv)  Nested, ordered, unordered bulletins >
+
 <!DOCTYPE html5> 
-<!-- Defines version of HTML used -->
+<! Defines version of HTML used >
 
 <html> 
-<!-- Information to browsers that it is a HTML document -->
+<! Information to browsers that it is a HTML document >
 
 <head>
-<!-- Metadata (Data about the HTML document)
-     This data is not shown to viewers. -->
+<! Metadata (Data about the HTML document)
+     This data is not shown to viewers. >
+
+<! style and classes- CSS code
+   the @keyframes - JavaScript code >
 
 <title> Shruti Sharada S Resume </title>
 
 <style>
 
         header {
-            background-color: #DE3163;
+            background-color: #fc0fc0;
             color: #fff;
             text-align: center;
-            padding: 35px;
+            padding: 32px;
+	    border-radius: 10px;
 	    animation: colorChange 3s linear infinite;
+	    box-shadow: 0 0 10px rgba(215, 0, 250, 1);
         }
 
 	header img {
@@ -29,76 +48,143 @@
     @keyframes colorChange {
       0% {
 	left: 0%;
-        background-color: #DE3163;
+        background-color: #fc0fc0;
       }
-      25% {
-	left: 25%;
+      11% {
+	left: 11%;
+        background-color: #65318e;
+      }
+      21% {
+	left: 21%;
+        background-color: #8968cd;
+      }
+      32% {
+	left: 32%;
+        background-color: #a865b5;
+      }
+      42% {
+	left: 42%;
+        background-color: #875692;
+      }
+      53% {
+	left: 53%;
+        background-color: #743089;
+      }
+
+      64% {
+	left: 64%;
 	background-color: #a3006b;
-      }
-      50% {
-	left: 50%;
-        background-color: #e11584;
       }
       75% {
 	left: 75%;
-	background-color: #e75480;
+	background-color: #e11584;
+      }
+      83% {
+	left: 83%;
+        background-color: #b53389;
+      }
+      94% {
+	left: 94%;
+        background-color: #e75480;
       }
       100% {
 	left: 100%;
-        background-color: #DE3163;
+        background-color: #fc0fc0;
       }
     }
 
         section {
             background-color: #fc8eac;
 	    color: #fff;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            margin: 12px 0;
+	    border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
         }
 
-        h3 {
-            color: #fff;
+        .education b {
+            color: #000;
         }
 	
-	h4 {
-	    color: #000;
+	h3 {
+	    color: #fff;
+	}
+	
+	.work h3 {
+	    color: #5d3189;
+	}
+ 
+	ol {
+	    list-style-type: upper-roman;
+	    padding-bottom: 5px;
 	}
 
-        p {
-            margin-bottom: 10px;
-        }
+	.work b{
+	    color: #362662;
+	    border-bottom: 2px solid #362662;	    
+	}
 
         ul {
-            list-style-type: none;
-            padding: 0;
+            list-style-type: circle;
+	    margin-top: 10px;
+            padding-bottom: 10px;
         }
+	ul i {
+	    list-style-type: square;
+	}
 
-        li {
-            margin-bottom: 10px;
-        }
+	li::marker {
+	    color: 6d3e91;
+	} 
 
-        .work-experience {
-            margin-bottom: 30px;
+	li {
+	    padding: 5px;
+	    
+	}
+
+        .work h2{
+            color: #000;
+	    border-bottom: 2px dashed #000;
         }
 
         .education h2{
-            color: #fff;
-	    border-bottom: 2px solid #fff;
+            color: #654321;
+	    border-bottom: 2px groove #654321;
         }
 
-        .skills {
-            margin-bottom: 20px;
+        .skills h2{
+	    color: #4f3c7f;
+            border-bottom: 2px solid #4f3c7f;
         }
 
-        .courses {
-            margin-bottom: 30px;
-        }
+	.row {
+   	    display: flex;
+	}
 
-        .courses h3 {
-            color: #27ae60;
-        }
+	.column {
+    	    flex: 1;
+	    text-align: center;
+	    margin-left: -100px;
+	}
+
+	.column h3 {
+	    color: #6b51ab;
+	}
+	.crss h2{
+	    color: #66103e;
+ 	    border-bottom: 2px dashed #66103e;
+	}
+
+	.crss ol {
+	     list-style-type: decimal;
+	}
+	.crss li::marker {
+		color: #7b3d61;
+	}
+	
+	.crss h3 {
+	    color: #66153a;
+	}
 
 </style>
 </head>
@@ -107,17 +193,77 @@
 <h1>
 <img src= "Passport-size.jpg" alt= "Shruti photo"> 
 <br> Shruti Sharada S </h1>
-<h2> Software Engineer <br>
-Skills: Linux shell scripting, Git, Rest API, C, C++, Python, Redis, SQL, Multithreading <br>
-Software tools: Gerrit, Jira, Postman (API testing), Jenkins, ES Portal </h2>
+<h2> Software Engineer <br> </h2>
+<h3> I am goal-oriented, a quick-learner, inquisitive in nature, higly determined, dedicated, motivated and creative. <br> 
+I can be an asset with the valuable qualities I have honed from my past experiences. </h3>
 </header>
 
 <section class = "education">
 <h2>EDUCATION </h2>
 <div>
-<h3> <b> Bachelor of Engineering(B.E) - Electronics and Communication Engineering </b> </h3>
-<h4> From: Sri Venkateswara College of Engineering (SVCE), Pennalur, Sriperumbudur <br>
-YOE: 2017-2021 </h4>
+<h3> <b> B.E - Electronics and Communication Engineering </b> <br>
+Sri Venkateswara College of Engineering <br>
+2017-2021 <br>
+CGPA: 7.97 </h3>
+<h3> <b> Senior Secondary (XII) Education </b> <br>
+Devi Academy Senior Secondary School <br>
+2017 <br>
+Percentage: 85.80%
 </div>
+</section>
+
+<section class = "skills">
+<h2> SKILLS </h2>
+<div class="row"> 
+    <div class="column">
+	<h3> Git <br>
+	C++ <br>
+	React <br>
+	Redis <br>
+	HTML </h3>
+    </div>
+    <div class="column">
+ 	<h3> CSS <br>
+	SPA <br>
+	Python <br>
+	Rest API <br>
+	Multi-threading </h3>
+    </div>
+    <div class = "column">
+	<h3> SQL <br>
+	SASS <br>
+	JavaScript <br>
+	Shell scripting <br>
+	C programming </h3>
+</div>
+</section>
+
+<section class = "work">
+<h2> WORK EXPERIENCE </h2>
+
+<h3> <div> <ol> <li> <b> SOFTWARE ENGINEER </b> </li>
+<ul> <li> Part of Infra-development team, write code using C, C++, Python coding to control, manage and integrate different Linux processes. </li>
+<li> Work on software implementations of physical products, such as chassis (box) and cards (and slots). </li>
+<li> Design CLI and API interfaces. </li>
+<li> Resolved 70+ bugs and customer issues. </li>
+</ul>
+<li> <b> PROGRAM MANAGEMENT (PMO) AUTOMATION </b> </li>
+<p> Accessed the following APIs using Python code to automate various tasks:<br> </p>
+<ul> <i> <li> JIRA API </li>
+<li> Jenkins API </li>
+<li> ES Portal API </li> </i> </ul>
+<p> Also used Python code to update processed values in fields in Jira and work with Excel and automate Pivot tables. </p> </ol> </div>
+</section>
+
+<section class = "crss">
+<h2> COURSES </h2>
+<h3><ol> <li> <b> Fundamentals of HTML, CSS and JavaScript </b> </li>
+<i> Progate </i>
+<li> <b> Learn basics of React from scratch </b> </li>
+<i> Udemy </i>
+<li> Modern JavaScript for React JS, Udemy </li> 
+<i> Udemy </i>
+</h3>
+</section>
 </body>
 </html>
