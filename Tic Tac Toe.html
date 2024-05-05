@@ -1,0 +1,110 @@
+<!-- Implementations:
+     ----------------
+1. Tic Tac Toe square container boxes
+2. Center-justification of all items, including print statement
+3. Printing of win or draw. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tic Tac Toe Game</title>
+<style>
+
+  body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: white;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 2px;
+    width: 306px; /* (100px * 3) + (2px * 2) */
+  }
+
+  .square {
+    background-color: #8B4513; /* Brown color for squares */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    cursor: pointer;
+  }
+
+  #message {
+    margin-top: 20px;
+    font-size: 25px;
+    bottom: 50px;
+    position: absolute;
+    display: flex;
+    justify-content: center;   
+  }
+
+</style>
+</head>
+
+<body>
+  <div class="container" id="board">
+    <div class="square" onclick="placeMark(0)"></div>
+    <div class="square" onclick="placeMark(1)"></div>
+    <div class="square" onclick="placeMark(2)"></div>
+    <div class="square" onclick="placeMark(3)"></div>
+    <div class="square" onclick="placeMark(4)"></div>
+    <div class="square" onclick="placeMark(5)"></div>
+    <div class="square" onclick="placeMark(6)"></div>
+    <div class="square" onclick="placeMark(7)"></div>
+    <div class="square" onclick="placeMark(8)"></div>
+  </div>
+
+  <div id="message"></div>
+
+  <script>
+    let currentPlayer = 'X';
+    const squares = Array.from(document.getElementsByClassName('square'));
+
+    function placeMark(index) {
+      if (squares[index].innerText === '') {
+        squares[index].innerText = currentPlayer;
+        if (checkWin()) {
+          document.getElementById('message').innerText = `${currentPlayer} wins!`;
+          resetBoard();
+        } else if (checkDraw()) {
+          document.getElementById('message').innerText = "It's a draw!";
+          resetBoard();
+        } else {
+          currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        }
+      }
+    }
+
+    function checkWin() {
+      const winConditions = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], // rows
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], // columns
+        [0, 4, 8], [2, 4, 6] // diagonals
+      ];
+      return winConditions.some(condition =>
+        condition.every(index => squares[index].innerText === currentPlayer)
+      );
+    }
+
+    function checkDraw() {
+      return squares.every(square => square.innerText !== '');
+    }
+
+    function resetBoard() {
+      squares.forEach(square => square.innerText = '');
+      currentPlayer = 'X';
+    }
+  </script>
+</body>
+</html>
