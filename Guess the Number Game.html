@@ -1,0 +1,97 @@
+<!-- Implementations on the page:
+     ----------------------------
+1. Centering of data in 'body' using flex, justify-content and position:relative.
+2. JavaScript input handling with 'on-click'
+3. Background-color change based on input using javaScript and tracking of number of attempts
+4. Instruction on bottom-right corner -->
+
+<!DOCTYPE html5>
+<html lang="en">
+
+<head>
+
+<!-- Metadata (Data about the HTML document) -->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Guess The Number</title>
+
+<style>
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: powderblue; /* Default background color - Blue */
+    transition: background-color 0.5s ease;
+    position: relative;
+  }
+
+  #game {
+    text-align: center;    
+  }
+
+  h1 {
+	color: white;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
+     }
+
+  #instructions {
+    position: absolute;
+    bottom: 10px;
+    left: 30px;
+    text-align: left;
+    font-size: 14px;
+  }
+
+  strong {
+	text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+  #guessInput {
+    margin-bottom: 10px;
+  }
+
+</style>
+</head>
+
+<body>
+  <div id="game">
+    <h1>Guess the Number</h1>
+    <input type="number" id="guessInput" placeholder="Enter your guess">
+    <button onclick="checkGuess()">Submit</button>
+    <p id="message"></p>
+  </div>
+
+  <div id="instructions">
+    <p><strong><u>Instructions to play:</strong></u></p>
+    <p>1. Enter a number between 1 and 100.</p>
+    <p>2. Click 'Submit' to valuate your guess.</p>
+    <p>3. You'll get output on whether your guess is higher, lower or correct.</p>
+    <p>4. Keep guessing until you find the correct number!</p>
+  </div>
+
+  <script>
+    // Generate a random number between 1 and 100
+    const randomNumber = Math.floor(Math.random() * 100) + 1;
+    let attempts = 1;
+
+    function checkGuess() {
+      const guess = parseInt(document.getElementById('guessInput').value);
+      if (guess === randomNumber) {
+        document.body.style.backgroundColor = '#6bb56b'; // Green color for correct guess
+        document.getElementById('message').innerText = `Congratulations! You guessed the number ${randomNumber} in ${attempts} attempts.`;
+      } else if (guess < randomNumber) {
+        document.body.style.backgroundColor = 'tomato'; // Tomato-red color for low guess
+        document.getElementById('message').innerText = 'Try to guess a higher number! Guess again!';
+      } else {
+        document.body.style.backgroundColor = 'pink'; // Pink color for high guess
+        document.getElementById('message').innerText = 'Try to guess a lower number! Guess again!';
+      }
+      attempts++;
+    }
+  </script>
+
+</body>
+</html>
