@@ -5,7 +5,7 @@ print("Hello! What's your name?")
 name=input()
 def game():
     secnum=random.randint(1,10)
-    print("Well,"+str(name)+" I am thinking of a number between 1 and 20")
+    print("Well,"+str(name)+" I am thinking of a number between 1 and 10")
     print('Try to guess it within 6 tries')
     for guesses in range(1,7):
         print("Your guess "+ str(guesses)+":")
